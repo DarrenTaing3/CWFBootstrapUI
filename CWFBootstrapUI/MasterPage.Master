@@ -1,0 +1,61 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="MasterPage.Master.cs" Inherits="CWFBootstrapUI.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title>CWF Data Management System</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="styles.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body class="bg-cwfprimary">
+    <div class="container-fluid bg-white border-bottom border-cwfsecondary border-thick shadow">
+        <div class="row">
+            <div class="float-left align-content-center p-2">
+                <img src="images/logo.png" class="d-block mx-auto p-2" alt="logo" height="100px" />
+            </div>
+            <asp:Panel ID="tabs" class="float-left mt-auto ml-5 z-top" runat="server">
+                <ul class="nav nav-tabs">
+                    <li class="nav-item mx-3"><a class="nav-link active px-5 py-3 bg-cwfsecondary border-cwfsecondary text-white" href="#records" data-toggle="tab">Records</a></li>
+                    <li class="nav-item mx-3"><a class="nav-link px-5 py-3 bg-cwfsecondary border-cwfsecondary text-white" href="#aggregate" data-toggle="tab">Aggregate</a></li>
+                </ul>
+            </asp:Panel>
+
+            <div class="position-absolute text-center mx-auto mt-5 w-100 text-cwftertiary">
+                <h2 id="title" runat="server"> Title </h2>
+            </div>
+
+            <div class="col-2 ml-auto mt-5 adjust-8" id="logout" runat="server">
+                <a href="Default.aspx" class="text-black-50">
+                    <h4>Log out</h4>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <asp:ContentPlaceHolder ID="innerPage" runat="server">
+        </asp:ContentPlaceHolder>
+    </div>
+</body>
+
+</html>
+
+<script>
+    $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
+        let target = $(e.target).attr("href")
+
+        if (target == '#records') {
+            $('#title')[0].innerText = "Client Records";
+        }
+        if (target == '#aggregate') {
+            $('#title')[0].innerText = "Aggregate Data";
+        }
+    });
+</script>
+
