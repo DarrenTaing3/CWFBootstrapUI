@@ -3,9 +3,31 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="innerPage" runat="server">
 
+    <style>
+    table tr td{
+        padding-left: 360px;
+        padding-top: 100px;
 
-    <form class="row bg-white" runat="server">
+    }
+    div{
+        padding-left: 10px;
+        
+    }
+
+    .logo{
+        text-align: center;
+        padding-top: 30px;
+    }
+</style>
+    <table>
+        <tr><td   style= " width : 95%">
+           
+    <form class="row bg-white" runat="server" >
         <div class="text-center">
+
+                        <div class="logo" >
+                <img src="images/logo.png" class="d-block mx-auto p-2" alt="logo" height="100px" />
+            </div>
             <asp:Label ID="lblErrorResponse" runat="server" Text="Please enter your username and password."></asp:Label>
             <br></br>
     <asp:Label ID="lblUsername" runat="server" Text="Username: "></asp:Label>
@@ -27,4 +49,6 @@
         </div>
         
     </form>
+            </td></tr>
+    </table>
 </asp:Content>
